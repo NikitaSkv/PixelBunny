@@ -1,5 +1,5 @@
 //fix g_WebAudioContext exception
-g_WebAudioContext._m21 = function(){}
+//g_WebAudioContext._h31 = function(){}
 
 
 // Java Script File System
