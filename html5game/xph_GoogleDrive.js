@@ -200,6 +200,17 @@ async function createEmptyFile2(name, mimeType) {
 function pickerCallback(data) {
 	console.log('pickerCallback');
 	console.log(data);
+	
+	if(data && data.action=="picked")
+	{
+		if(data.docs.length > 0)
+		{
+			let fileId = data.docs[0].id;
+			console.log(fileId);
+			let response = download(fileId);
+			console.log(response);
+		}
+	}
 }
 
 async function __gd_pick_file(title, mimeTypes, mode) {
@@ -235,7 +246,7 @@ async function __gd_open_file() {
 	//console.log(profile.getEmail());
 	
 	
-	
+	/*
 	var view = new google.picker.DocsView()
 		.setIncludeFolders(true)
 		.setOwnedByMe(true)
@@ -256,13 +267,13 @@ async function __gd_open_file() {
 		.build();
 		
 	picker.setVisible(true);
+	*/
 	
-	/*
 	var view = new google.picker.DocsView()
 		.setIncludeFolders(true)
 		.setOwnedByMe(true)
 		.setParent('root')
-		.setMimeTypes('application/json')
+		.setMimeTypes('application/octet-stream')
 		.setMode(google.picker.DocsViewMode.LIST);
 	
 	const token = gapi.client.getToken();
@@ -275,7 +286,6 @@ async function __gd_open_file() {
 		.setTitle('Select Pixel-Bunny-Project file')
 		.build();
 	picker.setVisible(true);
-	*/
 }
 
 /*
@@ -300,23 +310,7 @@ async function saveFile(callback) {
 }
 */
 
-function prom(gapiCall, argObj) {
-	return new Promise((resolve, reject) => {
-		gapiCall(argObj).then(resp => {
-			if (resp && (resp.status < 200 || resp.status > 299)) {
-				console.log('GAPI call returned bad status', resp)
-				reject(resp)
-			} else {
-				resolve(resp)
-			}
-		}, err => {
-			console.log('GAPI call failed', err)
-			reject(err)
-		})
-	})
-}
 
-/*
 function prom(gapiCall, argObj) {
 	return new Promise((resolve, reject) => {
 		gapiCall(argObj).then(resp => {
@@ -406,5 +400,5 @@ async function deleteFile(fileId) {
 		throw err
 	}
 }
-*/
+
 

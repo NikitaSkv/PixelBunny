@@ -34,7 +34,7 @@ function __wad_create_root_div() {
 	return rootDiv;
 }
 
-function __wad_get_string(caption, content, onOk, onCancel) {
+function __wad_get_value(caption, valueType, content, onOk, onCancel) {
 	
 	__wad_onOk = onOk;
 	__wad_onCancel = onCancel;
@@ -101,7 +101,7 @@ function __wad_get_string(caption, content, onOk, onCancel) {
 	
 	
 	let input = document.createElement('input');
-	input.type = 'text';
+	input.type = valueType;
 	input.value = content;
 	
 	__wad_input = input;
@@ -160,4 +160,13 @@ function __wad_get_string(caption, content, onOk, onCancel) {
 	
 	input.focus();
 }
+
+function __wad_get_string(caption, content, onOk, onCancel) {
+	__wad_get_value(caption, "text", content, onOk, onCancel);
+}
+
+function __wad_get_numb(caption, content, onOk, onCancel) {
+	__wad_get_value(caption, "number", content, onOk, onCancel);
+}
+
 

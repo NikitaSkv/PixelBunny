@@ -68,7 +68,7 @@ function __waf_get_save_name(caption, message, mimeType, name, callback) {
 	__waf_callback = callback;
 	
 	const splitedMimeType = mimeType.split('/');
-	const extension = splitedMimeType.length > 1 ? '.' + splitedMimeType[1] : "";
+	const extension = splitedMimeType.length > 1 ? '.' + splitedMimeType[1] : '.' + splitedMimeType[0];
 	
 	const splitedFilename = name.split('.');
 	const basename = splitedFilename[0];
