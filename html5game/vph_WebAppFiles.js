@@ -96,7 +96,7 @@ function __waf_get_save_name(caption, message, mimeType, name, callback) {
 	
 	// div
 	const div = document.createElement('div');
-	div.style.width = "50%";
+	div.style.width = "100%";
 	div.style.height = "fit-content";
 	div.style.background = "#FFFFFF";
 	div.style.display = "flex";
@@ -104,16 +104,8 @@ function __waf_get_save_name(caption, message, mimeType, name, callback) {
 	div.style.flexDirection = "column";
 	div.style.margin = "0";
 	div.style.padding = "0";
-	div.style.border = "#FF5a11";
-	div.style.borderStyle = "solid";
-	div.style.borderWidth = "thick";
 	div.style.color = "#000077";
-	
 	__waf_div.appendChild(div);
-	
-	//div.style.display = "flex";
-	//div.style.flexDirection = "column";
-	//div.style.alignItems = "center";
 	
 	const h = document.createElement('h1');
 	div.appendChild(h);
@@ -131,24 +123,27 @@ function __waf_get_save_name(caption, message, mimeType, name, callback) {
 		p.style.fontSize = "16px";
 	}
 	
+	// input div
 	const inputDiv = document.createElement("div");
+	inputDiv.style.width = "100%";
 	inputDiv.style.display = "flex";
 	inputDiv.style.alignItems = "center";
-	inputDiv.style.flexWrap = "wrap";
+	inputDiv.style.justifyContent = "center";
 	inputDiv.style.flexDirection = "row";
 	
-	
+	// input box
 	const input = document.createElement('input');
 	input.type = 'text';
 	input.value = basename;
-	
-	__waf_input = input;
+	input.style.width = "200px";
 	input.style.height = "32px";
 	input.style.fontFamily = "Lucida Console";
 	input.style.fontStyle = "normal";
 	input.style.fontSize = "24px";
 	inputDiv.appendChild(input);
-	
+	__waf_input = input;
+
+	// extension
 	const formatStr = document.createElement('p');
 	formatStr.innerHTML = extension;
 	formatStr.style.fontFamily = "Lucida Console";
